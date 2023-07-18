@@ -9,11 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "10.4.14",
+    "@influxdata/influxdb-client": "^1.33.2",
+    "chart.js": "^4.3.0",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
+    "influxdb": "^0.0.1",
+    "mongoose": "^7.3.4",
     "next": "13.4.9",
-    "postcss": "8.4.25",
     "react": "18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.3.2"
+    "recharts": "^2.7.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.25",
+    "tailwindcss": "^3.3.2"
   }
 }
