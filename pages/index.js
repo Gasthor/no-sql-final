@@ -37,7 +37,7 @@ export default function Home() {
       //console.log(fechaActual.toLocaleDateString('de-DE', opciones));
       return { ...objeto, time: fechaActual.toLocaleDateString('cl-CL', opciones) };
     });
-    
+
     console.log(datosActualizados)
     setLoading(false)
   }
@@ -48,7 +48,10 @@ export default function Home() {
 
   if (loading === false) {
     return (
-      <div className='flex flex-col justify-center'>
+      <div className='flex flex-col justify-center w-full'>
+        <div>
+
+        </div>
         <h1 className='text-center text-4xl font-bold mt-5'>Piscinas no-SQL</h1>
 
         <select value={pool} className=' w-fit p-2 mx-auto my-4 border-2 border-black rounded-lg' onChange={(e) => setPool(e.target.value)}>
@@ -90,10 +93,12 @@ export default function Home() {
             }
           </div>
         </div>
-        <div>
+        <div className='my-4'>
           <h1 className='text-center text-xl font-semibold'>Historial 24 horas</h1>
-          <Chart data={sensorInfo}/>
-          <table className="w-full text-sm text-left mx-auto">
+          <div className='flex justify-center'>
+            <Chart data={sensorInfo} />
+          </div>
+          <table className="w-[300px] md:w-2/3 text-sm text-left mx-auto">
             <thead className="text-xs text-gray-700 uppercase bg-blue-200">
               <tr>
                 <th className='p-2'>Tiempo</th>
