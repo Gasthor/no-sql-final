@@ -49,7 +49,6 @@ async function insertTemperaturePoint(pool, sensorNumber, value) {
   }
 }
 
-
 /*
 router.post('/', (req, res) => {
   const pool = req.body.pool;
