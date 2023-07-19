@@ -1,4 +1,4 @@
-import { myQueryJson } from "@/influxdb"
+import { insertTemperaturePoint, myQueryJson } from "@/influxdb"
 
 export default async function handler(req, res) {
 

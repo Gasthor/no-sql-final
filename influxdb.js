@@ -34,7 +34,7 @@ export const myQueryJson = async (nHours, pool, sensorNumber) => {
 ///// POST
 
 
-async function insertTemperaturePoint(pool, sensorNumber, value) {
+export const insertTemperaturePoint = async (pool, sensorNumber, value) => {
   const point = new Point('temperature')
     .tag('pool', pool)
     .tag('sensorNumber', sensorNumber)
