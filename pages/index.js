@@ -27,18 +27,28 @@ export default function Home() {
     setSensorData(data)
     const responseSensor = await fetch("api/infoSensor/24/" + pool + "/" + id)
     const info = await responseSensor.json()
-    setSensorInfo(info)
+    console.log(info)
+    //setSensorInfo(info)
 
-    const datosActualizados = sensorInfo.map((objeto) => {
-      const fechaActual = new Date(objeto.time);
+    const datosActualizados = info.map((objeto) => {
 
-      const opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      const fecha = new Date(objeto.time);
+      const dia = fecha.getDate();
+      const mes = fecha.getMonth() + 1; // Los meses en JavaScript comienzan desde 0, por lo que se debe sumar 1
+      const anio = fecha.getFullYear();
+      const hora = fecha.getHours();
+      const minutos = fecha.getMinutes();
+      const segundos = fecha.getSeconds();
 
-      //console.log(fechaActual.toLocaleDateString('de-DE', opciones));
-      return { ...objeto, time: fechaActual.toLocaleDateString('cl-CL', opciones) };
+      const fechaFormateada = `${dia < 10 ? '0' + dia : dia}-${mes < 10 ? '0' + mes : mes}-${anio} ${hora}:${minutos < 10 ? '0' + minutos : minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
+
+      console.log(fechaFormateada);
+      return {
+        ...objeto, time: fechaFormateada
+      };
     });
 
-    console.log(datosActualizados)
+    setSensorInfo(datosActualizados)
     setLoading(false)
   }
 
